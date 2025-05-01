@@ -711,6 +711,7 @@ function uploadStats() {
     };
   
     input.click();
+    lastGame();
 }
 
 function removeGames() {
