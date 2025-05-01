@@ -700,6 +700,7 @@ function uploadStats() {
           if (Array.isArray(parsedData)) {
             games = parsedData;
             console.log('Games array updated:', games);
+            lastGame();
           } else {
             console.error('JSON file does not contain an array');
           }
@@ -711,7 +712,6 @@ function uploadStats() {
     };
   
     input.click();
-    lastGame();
 }
 
 function removeGames() {
