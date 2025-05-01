@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AFL Umpiring Stats</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="center">
+        <H1 class="title">Insert a new game using the dropdown menus</H1>
+        <p>Click submit when you are finished</p>
+    </div>
+    <div id="input-columns">
+      <div class="dropdown-wrapper center">
+        <label class="label" for="standard">Division</label><br>
+        <select id="division" class="styled-dropdown">
+          <option value="">Select an option</option>
+          <option value="N/A">N/A</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+      </div>
+      
+      <div class="dropdown-wrapper center">
+        <label class="label" for="searchable">Competition</label><br>
+        <input list="comp-options" id="comp" class="styled-dropdown" placeholder="Type or select">
+        <datalist id="comp-options">
+          <option value="VSC (Very Small Children)">
+          <option value="U8">
+          <option value="U9">
+          <option value="U10">
+          <option value="U11">
+          <option value="U12">
+          <option value="U13">
+          <option value="U15">
+          <option value="U17">
+          <option value="Talent">
+          <option value="QFA Reserves">
+          <option value="QFA">
+          <option value="QAFL Reserves">
+          <option value="QAFL">
+          <option value="VFL">
+          <option value="AFL">
+          <option value="Masters">
+          <option value="Junior Pratice">
+          <option value="Senior Practice">
+        </datalist>
+      </div>
+
+      <div class="dropdown-wrapper center">
+        <label class="label" for="standard">Gender</label><br>
+        <select id="gender" class="styled-dropdown">
+          <option value="">Select an option</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+      
+      <div class="dropdown-wrapper center">
+        <label class="label" for="searchable">Ground</label><br>
+        <input list="ground-options" id="ground" class="styled-dropdown" placeholder="Type or select">
+        <datalist id="ground-options">
+          <option value="Alan Nielsen Oval">Alan Nielsen Oval</option>
+          <option value="Barry Sheppard Oval">Barry Sheppard Oval</option>
+          <option value="Benowa State">Benowa State</option>
+          <option value="Bill Godfrey Oval">Bill Godfrey Oval</option>
+          <option value="Bond University Oval">Bond University Oval</option>
+          <option value="Cook-Murphy Oval">Cook-Murphy Oval</option>
+          <option value="Coomera Sports Park">Coomera Sports Park</option>
+          <option value="EXIMM Oval">EXIMM Oval</option>
+          <option value="Fankhouser Reserve 1">Fankhouser Reserve 1</option>
+          <option value="Fankhouser Reserve 2">Fankhouser Reserve 2</option>
+          <option value="Giffin Park">Giffin Park</option>
+          <option value="Leyshon Park">Leyshon Park</option>
+          <option value="McAuley Parade Oval">McAuley Parade Oval</option>
+          <option value="Neptune Homes Oval">Neptune Homes Oval</option>
+          <option value="Ormeau Sports Park">Ormeau Sports Park</option>
+          <option value="People First Stadium">People First Stadium</option>
+          <option value="Salk Oval">Salk Oval</option>
+          <option value="Scottsdale Reserve">Scottsdale Reserve</option>
+          <option value="Sir Bruce Small Park">Sir Bruce Small Park</option>
+        </datalist>
+      </div>
+
+      <div class="dropdown-wrapper center">
+        <label class="label" for="standard">Game Type</label><br>
+        <select id="type" class="styled-dropdown">
+          <option value="">Select an option</option>
+          <option value="Normal">Normal</option>
+          <option value="Practice">Practice</option>
+          <option value="Final">Final</option>
+          <option value="Grand Final">Grand Final</option>
+        </select>
+      </div>
+      <div class="dropdown-wrapper center">
+        <label class="label" for="searchable">Home Team</label><br>
+        <input list="home-options" id="home" class="styled-dropdown" placeholder="Type or select">
+        <datalist id="home-options">
+          <option value="Adelaide Crows">Adelaide Crows</option>
+          <option value="Alexandra Hills">Alexandra Hills</option>
+          <option value="Aspley">Aspley</option>
+          <option value="Ballina">Ballina</option>
+          <option value="Beenleigh">Beenleigh</option>
+          <option value="Bond Uni">Bond Uni</option>
+          <option value="Box Hill Hawks">Box Hill Hawks</option>
+          <option value="Bribie Island">Bribie Island</option>
+          <option value="Brisbane Lions">Brisbane Lions</option>
+          <option value="Brisbane Valley">Brisbane Valley</option>
+          <option value="Broadbeach">Broadbeach</option>
+          <option value="Brunswick">Brunswick</option>
+          <option value="Burleigh">Burleigh</option>
+          <option value="Byron">Byron</option>
+          <option value="Calamvale">Calamvale</option>
+          <option value="Caloundra">Caloundra</option>
+          <option value="Carlton">Carlton</option>
+          <option value="Cararra">Cararra</option>
+          <option value="Carindale">Carindale</option>
+          <option value="Casey Demons">Casey Demons</option>
+          <option value="Cherry">Cherry</option>
+          <option value="Coburg Lions">Coburg Lions</option>
+          <option value="Collingwood">Collingwood</option>
+          <option value="Collingwood Park">Collingwood Park</option>
+          <option value="Coolangatta">Coolangatta</option>
+          <option value="Coolum">Coolum</option>
+          <option value="Coomera">Coomera</option>
+          <option value="Cooparoo">Cooparoo</option>
+          <option value="Darebin">Darebin</option>
+          <option value="Darling Downs">Darling Downs</option>
+          <option value="Essendon">Essendon</option>
+          <option value="Everton Wolves">Everton Wolves</option>
+          <option value="Ferny Grove">Ferny Grove</option>
+          <option value="Ferry Grove">Ferry Grove</option>
+          <option value="Footscray Bulldogs">Footscray Bulldogs</option>
+          <option value="Frankston">Frankston</option>
+          <option value="Fremantle">Fremantle</option>
+          <option value="Geelong">Geelong</option>
+          <option value="Glasshouse">Glasshouse</option>
+          <option value="Gold Coast Suns">Gold Coast Suns</option>
+          <option value="Greater Springfield">Greater Springfield</option>
+          <option value="Greenbank">Greenbank</option>
+          <option value="Gympie">Gympie</option>
+          <option value="GWS Giants">GWS Giants</option>
+          <option value="Hawthorn">Hawthorn</option>
+          <option value="Hinterland">Hinterland</option>
+          <option value="Ipswich Cats">Ipswich Cats</option>
+          <option value="Ipswich Eagles">Ipswich Eagles</option>
+          <option value="Jimboomba">Jimboomba</option>
+          <option value="Jindalee">Jindalee</option>
+          <option value="Kawana Park">Kawana Park</option>
+          <option value="Kedron">Kedron</option>
+          <option value="Kenmore">Kenmore</option>
+          <option value="Kingscliff">Kingscliff</option>
+          <option value="Labrador">Labrador</option>
+          <option value="Lismore">Lismore</option>
+          <option value="Marcellin">Marcellin</option>
+          <option value="Maroochydore">Maroochydore</option>
+          <option value="Mayne">Mayne</option>
+          <option value="Melbourne">Melbourne</option>
+          <option value="Moggill">Moggill</option>
+          <option value="Moorooka">Moorooka</option>
+          <option value="Moreton Bay">Moreton Bay</option>
+          <option value="Morning Side">Morning Side</option>
+          <option value="Mt Gravatt">Mt Gravatt</option>
+          <option value="Mountain Creek">Mountain Creek</option>
+          <option value="Murwillumbah">Murwillumbah</option>
+          <option value="Narangba">Narangba</option>
+          <option value="Noosa">Noosa</option>
+          <option value="North Lakes">North Lakes</option>
+          <option value="North Melbourne">North Melbourne</option>
+          <option value="North Shore">North Shore</option>
+          <option value="Northan Bullants">Northan Bullants</option>
+          <option value="Ormeau">Ormeau</option>
+          <option value="Pacific Pines">Pacific Pines</option>
+          <option value="Palm Beach Currumbin">Palm Beach Currumbin</option>
+          <option value="Pine Rivers">Pine Rivers</option>
+          <option value="Pomona Cooroy">Pomona Cooroy</option>
+          <option value="Port Adelaide">Port Adelaide</option>
+          <option value="Port Melbourne">Port Melbourne</option>
+          <option value="Redcliffe">Redcliffe</option>
+          <option value="Redland Victoria Point">Redland Victoria Point</option>
+          <option value="Richmond">Richmond</option>
+          <option value="Robina">Robina</option>
+          <option value="Sandgate">Sandgate</option>
+          <option value="Sandringham">Sandringham</option>
+          <option value="Sherwood">Sherwood</option>
+          <option value="Southport">Southport</option>
+          <option value="St Kilda">St Kilda</option>
+          <option value="Subiaco">Subiaco</option>
+          <option value="Sunshine Coast">Sunshine Coast</option>
+          <option value="Surfers Paradise">Surfers Paradise</option>
+          <option value="Sydney Swans">Sydney Swans</option>
+          <option value="Tweed Coolangatta">Tweed Coolangatta</option>
+          <option value="Tweed Coast Tigers">Tweed Coast Tigers</option>
+          <option value="The Gap">The Gap</option>
+          <option value="University of Queensland">University of Queensland</option>
+          <option value="Werribee">Werribee</option>
+          <option value="West Coast Eagles">West Coast Eagles</option>
+          <option value="Western Bulldogs">Western Bulldogs</option>
+          <option value="Wests">Wests</option>
+          <option value="Westside">Westside</option>
+          <option value="Wilston Grange">Wilston Grange</option>
+          <option value="Williamstown">Williamstown</option>
+          <option value="Wynnum">Wynnum</option>
+          <option value="Yeronga">Yeronga</option>
+          <option value="Zillmere">Zillmere</option>
+        </datalist>
+      </div>
+      
+      <div class="dropdown-wrapper center">
+        <label class="label" for="date">Date Picker</label><br>
+        <input type="date" id="date" class="styled-dropdown">
+      </div>
+
+      <div class="dropdown-wrapper center">
+        <label class="label" for="searchable">Away Team</label><br>
+        <input list="away-options" id="away" class="styled-dropdown" placeholder="Type or select">
+        <datalist id="away-options">
+          <option value="Adelaide Crows">Adelaide Crows</option>
+          <option value="Alexandra Hills">Alexandra Hills</option>
+          <option value="Aspley">Aspley</option>
+          <option value="Ballina">Ballina</option>
+          <option value="Beenleigh">Beenleigh</option>
+          <option value="Bond Uni">Bond Uni</option>
+          <option value="Box Hill Hawks">Box Hill Hawks</option>
+          <option value="Bribie Island">Bribie Island</option>
+          <option value="Brisbane Lions">Brisbane Lions</option>
+          <option value="Brisbane Valley">Brisbane Valley</option>
+          <option value="Broadbeach">Broadbeach</option>
+          <option value="Brunswick">Brunswick</option>
+          <option value="Burleigh">Burleigh</option>
+          <option value="Byron">Byron</option>
+          <option value="Calamvale">Calamvale</option>
+          <option value="Caloundra">Caloundra</option>
+          <option value="Carlton">Carlton</option>
+          <option value="Cararra">Cararra</option>
+          <option value="Carindale">Carindale</option>
+          <option value="Casey Demons">Casey Demons</option>
+          <option value="Cherry">Cherry</option>
+          <option value="Coburg Lions">Coburg Lions</option>
+          <option value="Collingwood">Collingwood</option>
+          <option value="Collingwood Park">Collingwood Park</option>
+          <option value="Coolangatta">Coolangatta</option>
+          <option value="Coolum">Coolum</option>
+          <option value="Coomera">Coomera</option>
+          <option value="Cooparoo">Cooparoo</option>
+          <option value="Darebin">Darebin</option>
+          <option value="Darling Downs">Darling Downs</option>
+          <option value="Essendon">Essendon</option>
+          <option value="Everton Wolves">Everton Wolves</option>
+          <option value="Ferny Grove">Ferny Grove</option>
+          <option value="Ferry Grove">Ferry Grove</option>
+          <option value="Footscray Bulldogs">Footscray Bulldogs</option>
+          <option value="Frankston">Frankston</option>
+          <option value="Fremantle">Fremantle</option>
+          <option value="Geelong">Geelong</option>
+          <option value="Glasshouse">Glasshouse</option>
+          <option value="Gold Coast Suns">Gold Coast Suns</option>
+          <option value="Greater Springfield">Greater Springfield</option>
+          <option value="Greenbank">Greenbank</option>
+          <option value="Gympie">Gympie</option>
+          <option value="GWS Giants">GWS Giants</option>
+          <option value="Hawthorn">Hawthorn</option>
+          <option value="Hinterland">Hinterland</option>
+          <option value="Ipswich Cats">Ipswich Cats</option>
+          <option value="Ipswich Eagles">Ipswich Eagles</option>
+          <option value="Jimboomba">Jimboomba</option>
+          <option value="Jindalee">Jindalee</option>
+          <option value="Kawana Park">Kawana Park</option>
+          <option value="Kedron">Kedron</option>
+          <option value="Kenmore">Kenmore</option>
+          <option value="Kingscliff">Kingscliff</option>
+          <option value="Labrador">Labrador</option>
+          <option value="Lismore">Lismore</option>
+          <option value="Marcellin">Marcellin</option>
+          <option value="Maroochydore">Maroochydore</option>
+          <option value="Mayne">Mayne</option>
+          <option value="Melbourne">Melbourne</option>
+          <option value="Moggill">Moggill</option>
+          <option value="Moorooka">Moorooka</option>
+          <option value="Moreton Bay">Moreton Bay</option>
+          <option value="Morning Side">Morning Side</option>
+          <option value="Mt Gravatt">Mt Gravatt</option>
+          <option value="Mountain Creek">Mountain Creek</option>
+          <option value="Murwillumbah">Murwillumbah</option>
+          <option value="Narangba">Narangba</option>
+          <option value="Noosa">Noosa</option>
+          <option value="North Lakes">North Lakes</option>
+          <option value="North Melbourne">North Melbourne</option>
+          <option value="North Shore">North Shore</option>
+          <option value="Northan Bullants">Northan Bullants</option>
+          <option value="Ormeau">Ormeau</option>
+          <option value="Pacific Pines">Pacific Pines</option>
+          <option value="Palm Beach Currumbin">Palm Beach Currumbin</option>
+          <option value="Pine Rivers">Pine Rivers</option>
+          <option value="Pomona Cooroy">Pomona Cooroy</option>
+          <option value="Port Adelaide">Port Adelaide</option>
+          <option value="Port Melbourne">Port Melbourne</option>
+          <option value="Redcliffe">Redcliffe</option>
+          <option value="Redland Victoria Point">Redland Victoria Point</option>
+          <option value="Richmond">Richmond</option>
+          <option value="Robina">Robina</option>
+          <option value="Sandgate">Sandgate</option>
+          <option value="Sandringham">Sandringham</option>
+          <option value="Sherwood">Sherwood</option>
+          <option value="Southport">Southport</option>
+          <option value="St Kilda">St Kilda</option>
+          <option value="Subiaco">Subiaco</option>
+          <option value="Sunshine Coast">Sunshine Coast</option>
+          <option value="Surfers Paradise">Surfers Paradise</option>
+          <option value="Sydney Swans">Sydney Swans</option>
+          <option value="Tweed Coolangatta">Tweed Coolangatta</option>
+          <option value="Tweed Coast Tigers">Tweed Coast Tigers</option>
+          <option value="The Gap">The Gap</option>
+          <option value="University of Queensland">University of Queensland</option>
+          <option value="Werribee">Werribee</option>
+          <option value="West Coast Eagles">West Coast Eagles</option>
+          <option value="Western Bulldogs">Western Bulldogs</option>
+          <option value="Wests">Wests</option>
+          <option value="Westside">Westside</option>
+          <option value="Wilston Grange">Wilston Grange</option>
+          <option value="Williamstown">Williamstown</option>
+          <option value="Wynnum">Wynnum</option>
+          <option value="Yeronga">Yeronga</option>
+          <option value="Zillmere">Zillmere</option>
+        </datalist>
+      </div>
+    </div>
+    <div class="center">
+        <p id="submit-message"></p>
+        <button class="submit-btn" onclick="submit()">Submit</button>
+    </div>
+    <div class="center">
+      <h2 class="title">Last Upload</h2>
+      <fieldset class="stat-fieldset">
+        <div class="input-columns">
+            <p>Division: <span id="last-div"></span></p>
+            <p>Gender: <span id="last-gender"></span></p>
+            <p>Game Type: <span id="last-type"></span></p>
+            <p>Date: <span id="last-date"></span></p>
+            <p>Competition: <span id="last-comp"></span></p>
+            <p>Ground: <span id="last-ground"></span></p>
+            <p>Home Team: <span id="last-home"></span></p>
+            <p>Away Team: <span id="last-away"></span></p>
+        </div>
+        <div class="form-group">
+          <button class="submit-btn" onclick="deleteGame()">Delete</button>
+        </div>
+      </fieldset>
+    </div>
+    <div class="center">
+      <h3 class="title">Download/Upload Stats</h3>
+      <div class="form-group">
+        <button class="submit-btn" onclick="downloadStats()">Download</button>
+      </div>
+      <div class="form-group">
+        <button class="submit-btn" onclick="uploadStats()">Upload</button>
+      </div>
+    </div>
+    <div class="center">
+      <h2 class="title">AFL Wrapped</h2>
+      <fieldset class="columns2 stat-fieldset">
+        <div id="afl-wrapped-general-stats">
+          <div class="stat-section">
+            <h3>All Time:</h3>
+            <p>Total Games: <span id="total games" class="stat-output"></span></p>
+            <p>Total Non-practice Games: <span id="non-practice games" class="stat-output"></span></p>
+            <p>Total Senior Games: <span id="senior games" class="stat-output"></span></p>
+            <p>Total Junior Games: <span id="junior games" class="stat-output"></span></p>
+            <p>Total Womens Games: <span id="female games" class="stat-output"></span></p>
+            <p>Total Mens Games: <span id="male games" class="stat-output"></span></p>
+            <p>Most Umpired Comp: <span id="most-umpired-comp" class="stat-output"></span></p>
+            <p>Most Umpired Team: <span id="most-umpired-team" class="stat-output"></span></p>
+            <p>Most Umpired At Venue: <span id="most-umpired-ground" class="stat-output"></span></p>
+            <p>Most Umpired Club: <span id="most-umpired-club" class="stat-output"></span></p>
+          </div>
+          <div class="stat-section">
+            <h3>This Year:</h3>
+            <p>Total Games: <span id="year total games" class="stat-output"></span></p>
+            <p>Total Non-practice Games: <span id="year non-practice games" class="stat-output"></span></p>
+            <p>Total Senior Games: <span id="year senior games" class="stat-output"></span></p>
+            <p>Total Junior Games: <span id="year junior games" class="stat-output"></span></p>
+            <p>Total Womens Games: <span id="year female games" class="stat-output"></span></p>
+            <p>Total Mens Games: <span id="year male games" class="stat-output"></span></p>
+            <p>Most Umpired Comp: <span id="most-umpired-comp-year" class="stat-output"></span></p>
+            <p>Most Umpired Team: <span id="most-umpired-team-year" class="stat-output"></span></p>
+            <p>Most Umpired At Venue: <span id="most-umpired-ground-year" class="stat-output"></span></p>
+            <p>Most Umpired Club: <span id="most-umpired-club-year" class="stat-output"></span></p>
+          </div>
+        </div>      
+      </fieldset>
+    </div>
+    <div class="center">
+      <h2 class="title">Specific Stats</h2>
+      <fieldset class="stat-fieldset">
+        <div class="form-group">
+          <label for="year-stats1">Year:</label>
+          <input type="number" id="year-stats1" min="0000" max="9999" step="1" value="2020" class="input-style"/>
+          <label for="year-stats2" class="dash"> - </label>
+          <input type="number" id="year-stats2" min="0000" max="9999" step="1" value="2020" class="input-style"/>
+          <label class="switch">
+            <input id="year-checkbox" type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="division-stats">Division:</label>
+          <input type="number" id="division-stats" min="1" max="10" step="1" value="1" class="input-style"/>
+          <label class="switch">
+            <input id="division-checkbox" type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="age-stats">Age:</label>
+          <select id="age-stats" class="styled-dropdown2">
+            <option value="Select">Select</option>
+            <option value="Senior">Senior</option>
+            <option value="Junior">Junior</option>
+          </select>
+          <label class="switch">
+            <input id="age-checkbox" type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="comp-stats">Comp:</label>
+          <select id="comp-stats" class="styled-dropdown2">
+            <option value="Select">Select</option>
+            <option value="VSC (Very Small Children)">VSC (Very Small Children)</option>
+            <option value="U8">U8</option>
+            <option value="U9">U9</option>
+            <option value="U10">U10</option>
+            <option value="U11">U11</option>
+            <option value="U12">U12</option>
+            <option value="U13">U13</option>
+            <option value="U15">U15</option>
+            <option value="U17">U17</option>
+            <option value="Talent">Talent</option>
+            <option value="QFA Reserves">QFA Reserves</option>
+            <option value="QFA">QFA</option>
+            <option value="QAFL Reserves">QAFL Reserves</option>
+            <option value="QAFL">QAFL</option>
+            <option value="VFL">VFL</option>
+            <option value="AFL">AFL</option>
+            <option value="Masters">Masters</option>
+            <option value="Junior Pratice">Junior Practice</option>
+            <option value="Senior Practice">Senior Practice</option>
+          </select>
+          <label class="switch">
+            <input id="comp-checkbox" type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="gender-stats">Gender:</label>
+          <select id="gender-stats" class="styled-dropdown2">
+            <option value="Select">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <label class="switch">
+            <input id="gender-checkbox" type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="ground-stats">Ground:</label>
+          <select id="ground-stats" class="styled-dropdown2">
+            <option value="Select">Select</option>
+            <option value="Alan Nielsen Oval">Alan Nielsen Oval</option>
+            <option value="Barry Sheppard Oval">Barry Sheppard Oval</option>
+            <option value="Benowa State">Benowa State</option>
+            <option value="Bill Godfrey Oval">Bill Godfrey Oval</option>
+            <option value="Bond University Oval">Bond University Oval</option>
+            <option value="Cook-Murphy Oval">Cook-Murphy Oval</option>
+            <option value="Coomera Sports Park">Coomera Sports Park</option>
+            <option value="EXIMM Oval">EXIMM Oval</option>
+            <option value="Fankhouser Reserve 1">Fankhouser Reserve 1</option>
+            <option value="Fankhouser Reserve 2">Fankhouser Reserve 2</option>
+            <option value="Giffin Park">Giffin Park</option>
+            <option value="Leyshon Park">Leyshon Park</option>
+            <option value="McAuley Parade Oval">McAuley Parade Oval</option>
+            <option value="Neptune Homes Oval">Neptune Homes Oval</option>
+            <option value="Ormeau Sports Park">Ormeau Sports Park</option>
+            <option value="People First Stadium">People First Stadium</option>
+            <option value="Salk Oval">Salk Oval</option>
+            <option value="Scottsdale Reserve">Scottsdale Reserve</option>
+            <option value="Sir Bruce Small Park">Sir Bruce Small Park</option>
+          </select>
+          <label class="switch">
+            <input id="ground-checkbox" type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="form-group">
+          <button class="submit-btn" onclick="callGame()">Submit</button>
+        </div>
+        <p>Total Games with these stats: <span id="call-game-stat" class="stat-output"></span></p>
+      </fieldset>
+    </div>
+
+    <div class="center">
+      <h2 class="title">Compare Stats</h2>
+      <fieldset class="stat-fieldset">
+        <div class="columns2">
+          <div>
+            <div class="form-group">
+              <label for="primary-year-stats1">Year:</label>
+              <input type="number" id="primary-year-stats1" min="0000" max="9999" step="1" value="2020" class="input-style"/>
+              <label for="primary-year-stats2" class="dash"> - </label>
+              <input type="number" id="primary-year-stats2" min="0000" max="9999" step="1" value="2020" class="input-style"/>
+              <label class="switch">
+                <input id="primary-year-checkbox" type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="primary-division-stats">Division:</label>
+              <input type="number" id="primary-division-stats" min="1" max="10" step="1" value="1" class="input-style"/>
+              <label class="switch">
+                <input id="primary-division-checkbox" type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="primary-age-stats">Age:</label>
+              <select id="primary-age-stats" class="styled-dropdown2">
+                <option value="Select">Select</option>
+                <option value="Senior">Senior</option>
+                <option value="Junior">Junior</option>
+              </select>
+              <label class="switch">
+                <input id="primary-age-checkbox" type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="primary-comp-stats">Comp:</label>
+              <select id="primary-comp-stats" class="styled-dropdown2">
+                <option value="Select">Select</option>
+                <option value="VSC (Very Small Children)">VSC (Very Small Children)</option>
+                  <option value="U8">U8</option>
+                  <option value="U9">U9</option>
+                  <option value="U10">U10</option>
+                  <option value="U11">U11</option>
+                  <option value="U12">U12</option>
+                  <option value="U13">U13</option>
+                  <option value="U15">U15</option>
+                  <option value="U17">U17</option>
+                  <option value="Talent">Talent</option>
+                  <option value="QFA Reserves">QFA Reserves</option>
+                  <option value="QFA">QFA</option>
+                  <option value="QAFL Reserves">QAFL Reserves</option>
+                  <option value="QAFL">QAFL</option>
+                  <option value="VFL">VFL</option>
+                  <option value="AFL">AFL</option>
+                  <option value="Masters">Masters</option>
+                  <option value="Junior Pratice">Junior Practice</option>
+                  <option value="Senior Practice">Senior Practice</option>
+              </select>
+              <label class="switch">
+                <input id="primary-comp-checkbox" type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="primary-gender-stats">Gender:</label>
+              <select id="primary-gender-stats" class="styled-dropdown2">
+                <option value="Select">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <label class="switch">
+                <input id="primary-gender-checkbox" type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="primary-ground-stats">Ground:</label>
+              <select id="primary-ground-stats" class="styled-dropdown2">
+                <option value="Select">Select</option>
+                <option value="Alan Nielsen Oval">Alan Nielsen Oval</option>
+                <option value="Barry Sheppard Oval">Barry Sheppard Oval</option>
+                <option value="Benowa State">Benowa State</option>
+                <option value="Bill Godfrey Oval">Bill Godfrey Oval</option>
+                <option value="Bond University Oval">Bond University Oval</option>
+                <option value="Cook-Murphy Oval">Cook-Murphy Oval</option>
+                <option value="Coomera Sports Park">Coomera Sports Park</option>
+                <option value="EXIMM Oval">EXIMM Oval</option>
+                <option value="Fankhouser Reserve 1">Fankhouser Reserve 1</option>
+                <option value="Fankhouser Reserve 2">Fankhouser Reserve 2</option>
+                <option value="Giffin Park">Giffin Park</option>
+                <option value="Leyshon Park">Leyshon Park</option>
+                <option value="McAuley Parade Oval">McAuley Parade Oval</option>
+                <option value="Neptune Homes Oval">Neptune Homes Oval</option>
+                <option value="Ormeau Sports Park">Ormeau Sports Park</option>
+                <option value="People First Stadium">People First Stadium</option>
+                <option value="Salk Oval">Salk Oval</option>
+                <option value="Scottsdale Reserve">Scottsdale Reserve</option>
+                <option value="Sir Bruce Small Park">Sir Bruce Small Park</option>
+              </select>
+              <label class="switch">
+                <input id="primary-ground-checkbox" type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <p>Total Games with these stats: <span id="first-compare-game-stat" class="stat-output"></span></p>
+          </div>
+          <div>
+            <div class="form-group">
+              <label for="secondary-year-stats1">Year:</label>
+              <input type="number" id="secondary-year-stats1" min="0000" max="9999" step="1" value="2020" class="input-style"/>
+              <label for="secondary-year-stats2" class="dash"> - </label>
+              <input type="number" id="secondary-year-stats2" min="0000" max="9999" step="1" value="2020" class="input-style"/>
+              <label class="switch">
+                <input id="secondary-year-checkbox" type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="secondary-division-stats">Division:</label>
+              <input type="number" id="secondary-division-stats" min="1" max="10" step="1" value="1" class="input-style"/>
+              <label class="switch">
+                <input id="secondary-division-checkbox" type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="secondary-age-stats">Age:</label>
+              <select id="secondary-age-stats" class="styled-dropdown2">
+                <option value="Select">Select</option>
+                <option value="Senior">Senior</option>
+                <option value="Junior">Junior</option>
+              </select>
+              <label class="switch">
+                <input id="secondary-age-checkbox" type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="secondary-comp-stats">Comp:</label>
+              <select id="secondary-comp-stats" class="styled-dropdown2">
+                <option value="Select">Select</option>
+                <option value="VSC (Very Small Children)">VSC (Very Small Children)</option>
+                  <option value="U8">U8</option>
+                  <option value="U9">U9</option>
+                  <option value="U10">U10</option>
+                  <option value="U11">U11</option>
+                  <option value="U12">U12</option>
+                  <option value="U13">U13</option>
+                  <option value="U15">U15</option>
+                  <option value="U17">U17</option>
+                  <option value="Talent">Talent</option>
+                  <option value="QFA Reserves">QFA Reserves</option>
+                  <option value="QFA">QFA</option>
+                  <option value="QAFL Reserves">QAFL Reserves</option>
+                  <option value="QAFL">QAFL</option>
+                  <option value="VFL">VFL</option>
+                  <option value="AFL">AFL</option>
+                  <option value="Masters">Masters</option>
+                  <option value="Junior Pratice">Junior Practice</option>
+                  <option value="Senior Practice">Senior Practice</option>
+              </select>
+              <label class="switch">
+                <input id="secondary-comp-checkbox" type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="secondary-gender-stats">Gender:</label>
+              <select id="secondary-gender-stats" class="styled-dropdown2">
+                <option value="Select">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <label class="switch">
+                <input id="secondary-gender-checkbox" type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="secondary-ground-stats">Ground:</label>
+              <select id="secondary-ground-stats" class="styled-dropdown2">
+                <option value="Select">Select</option>
+                <option value="Alan Nielsen Oval">Alan Nielsen Oval</option>
+                <option value="Barry Sheppard Oval">Barry Sheppard Oval</option>
+                <option value="Benowa State">Benowa State</option>
+                <option value="Bill Godfrey Oval">Bill Godfrey Oval</option>
+                <option value="Bond University Oval">Bond University Oval</option>
+                <option value="Cook-Murphy Oval">Cook-Murphy Oval</option>
+                <option value="Coomera Sports Park">Coomera Sports Park</option>
+                <option value="EXIMM Oval">EXIMM Oval</option>
+                <option value="Fankhouser Reserve 1">Fankhouser Reserve 1</option>
+                <option value="Fankhouser Reserve 2">Fankhouser Reserve 2</option>
+                <option value="Giffin Park">Giffin Park</option>
+                <option value="Leyshon Park">Leyshon Park</option>
+                <option value="McAuley Parade Oval">McAuley Parade Oval</option>
+                <option value="Neptune Homes Oval">Neptune Homes Oval</option>
+                <option value="Ormeau Sports Park">Ormeau Sports Park</option>
+                <option value="People First Stadium">People First Stadium</option>
+                <option value="Salk Oval">Salk Oval</option>
+                <option value="Scottsdale Reserve">Scottsdale Reserve</option>
+                <option value="Sir Bruce Small Park">Sir Bruce Small Park</option>
+              </select>
+              <label class="switch">
+                <input id="secondary-ground-checkbox" type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <p>Total Games with these stats: <span id="second-compare-game-stat" class="stat-output"></span></p>
+          </div>
+        </div>
+        <p>Difference: <span id="difference-compare" class="stat-output"></span></p>
+        <div class="form-group">
+          <button class="submit-btn" onclick="compare()">Submit</button>
+        </div>
+      </fieldset>
+    </div>
+    <div class="center">
+      <h2 class="title">Graph Stats</h2>
+      <fieldset class="stat-fieldset">
+        <div class="center">
+          <h3>Select Stats:</h3>
+          <div class="form-group">
+            <label for="graph-year-stats1">Year:</label>
+            <input type="number" id="graph-year-stats1" min="0000" max="9999" step="1" value="2020" class="input-style"/>
+            <label for="graph-year-stats2" class="dash"> - </label>
+            <input type="number" id="graph-year-stats2" min="0000" max="9999" step="1" value="2020" class="input-style"/>
+          </div>
+          <div>
+            <label for="graph-division-stats">Division:</label>
+            <input type="number" id="graph-division-stats" min="1" max="10" step="1" value="1" class="input-style"/>
+            <label class="switch">
+              <input id="graph-division-checkbox" type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="graph-age-stats">Age:</label>
+            <select id="graph-age-stats" class="styled-dropdown2">
+              <option value="Select">Select</option>
+              <option value="Senior">Senior</option>
+              <option value="Junior">Junior</option>
+            </select>
+            <label class="switch">
+              <input id="graph-age-checkbox" type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="graph-comp-stats">Comp:</label>
+            <select id="graph-comp-stats" class="styled-dropdown2">
+              <option value="Select">Select</option>
+              <option value="VSC (Very Small Children)">VSC (Very Small Children)</option>
+                <option value="U8">U8</option>
+                <option value="U9">U9</option>
+                <option value="U10">U10</option>
+                <option value="U11">U11</option>
+                <option value="U12">U12</option>
+                <option value="U13">U13</option>
+                <option value="U15">U15</option>
+                <option value="U17">U17</option>
+                <option value="Talent">Talent</option>
+                <option value="QFA Reserves">QFA Reserves</option>
+                <option value="QFA">QFA</option>
+                <option value="QAFL Reserves">QAFL Reserves</option>
+                <option value="QAFL">QAFL</option>
+                <option value="VFL">VFL</option>
+                <option value="AFL">AFL</option>
+                <option value="Masters">Masters</option>
+                <option value="Junior Pratice">Junior Practice</option>
+                <option value="Senior Practice">Senior Practice</option>
+            </select>
+            <label class="switch">
+              <input id="graph-comp-checkbox" type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="graph-gender-stats">Gender:</label>
+            <select id="graph-gender-stats" class="styled-dropdown2">
+              <option value="Select">Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <label class="switch">
+              <input id="graph-gender-checkbox" type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="graph-ground-stats">Ground:</label>
+            <select id="graph-ground-stats" class="styled-dropdown2">
+              <option value="Select">Select</option>
+              <option value="Alan Nielsen Oval">Alan Nielsen Oval</option>
+              <option value="Barry Sheppard Oval">Barry Sheppard Oval</option>
+              <option value="Benowa State">Benowa State</option>
+              <option value="Bill Godfrey Oval">Bill Godfrey Oval</option>
+              <option value="Bond University Oval">Bond University Oval</option>
+              <option value="Cook-Murphy Oval">Cook-Murphy Oval</option>
+              <option value="Coomera Sports Park">Coomera Sports Park</option>
+              <option value="EXIMM Oval">EXIMM Oval</option>
+              <option value="Fankhouser Reserve 1">Fankhouser Reserve 1</option>
+              <option value="Fankhouser Reserve 2">Fankhouser Reserve 2</option>
+              <option value="Giffin Park">Giffin Park</option>
+              <option value="Leyshon Park">Leyshon Park</option>
+              <option value="McAuley Parade Oval">McAuley Parade Oval</option>
+              <option value="Neptune Homes Oval">Neptune Homes Oval</option>
+              <option value="Ormeau Sports Park">Ormeau Sports Park</option>
+              <option value="People First Stadium">People First Stadium</option>
+              <option value="Salk Oval">Salk Oval</option>
+              <option value="Scottsdale Reserve">Scottsdale Reserve</option>
+              <option value="Sir Bruce Small Park">Sir Bruce Small Park</option>
+            </select>
+            <label class="switch">
+              <input id="graph-ground-checkbox" type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <button class="submit-btn" onclick="graph()">Submit</button>
+          </div>
+          <h3>Graph:</h3>
+          <div>
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </body>
+</html>
