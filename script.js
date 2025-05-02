@@ -134,7 +134,8 @@ function basicStats() {
             numSenior++;
         } else if (juniorComps.includes(games[i].comp)) {
             numJunior++;
-        } else if (practiceComps.includes(games[i].comp)) {
+        } 
+        if (practiceComps.includes(games[i].comp) || games[i].type === 'Practice') {
             practice++;
         }
         if ("Male" === games[i].gender) {
@@ -143,6 +144,7 @@ function basicStats() {
             numFemale++;
         }
 
+        console.log(games[i].type === 'Practice')
         //find stats for this year
         let gameDate = new Date(games[i].date);
         if (gameDate.getFullYear() === currentYear) {
@@ -151,8 +153,10 @@ function basicStats() {
                 yearNumSenior++;
             } else if (juniorComps.includes(games[i].comp)) {
                 yearNumJunior++;
-            } else if (practiceComps.includes(games[i].comp)) {
+            } 
+            if (practiceComps.includes(games[i].comp) || games[i].type === 'Practice') {
                 yearPractice++;
+                console.log(yearPractice)
             }
             if ("Male" === games[i].gender) {
                 yearNumMale++;
