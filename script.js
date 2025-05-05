@@ -49,7 +49,7 @@ function submit() {
 }
 
 //comp consts
-const juniorComps = ["VSC (Very Small Children)", "U8", "U9", "U10", "U11", "U12", "U13", "U15", "U17"];
+const juniorComps = ["VSC (Very Small Children)", "U8", "U9", "U10", "U11", "U12", "U13", "U14", "U15", "U16", "U17"];
 const seniorComps = ["QFA Reserves", "QFA", "QAFL Reserves", "QAFL",  "VFL" , "AFL", "Masters"];
 const practiceComps = ["Junior Practice", "Senior Practice"];
 const allComps = [...juniorComps, ...seniorComps, ...practiceComps];
@@ -127,9 +127,9 @@ function basicStats() {
 
     //find stats 
     for (let i = 0; i < games.length; i++) {
-        if (seniorComps.includes(games[i].comp)) {
+        if (seniorComps.includes(games[i].comp) && games[i].type !== "Practice") {
             numSenior++;
-        } else if (juniorComps.includes(games[i].comp)) {
+        } else if (juniorComps.includes(games[i].comp) && games[i].type !== "Practice") {
             numJunior++;
         } 
         if (practiceComps.includes(games[i].comp) || games[i].type === 'Practice') {
@@ -234,21 +234,6 @@ function basicStats() {
 }
 
 basicStats();
-
-function checkAFLWrappedStats(i) {
-    if (seniorComps.includes(games[i].comp)) {
-        yearNumSenior++;
-    } else if (juniorComps.includes(games[i].comp)) {
-        yearNumJunior++;
-    } else if (practiceComps.includes(games[i].comp)) {
-        yearPractice++;
-    }
-    if ("Male" === games[i].gender) {
-        yearNumMale++;
-    } else {
-        yearNumFemale++;
-    }
-}
 
 function getMostStat(allThings, dataName, year) {
     let mostThing = {}
@@ -424,7 +409,6 @@ function callGame() {
     document.getElementById('call-game-stat').textContent = statNum;
 }
 
-compare()
 //function for comparing yearly stats or monthly stats 
 function compare() {   
     //set variables
