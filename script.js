@@ -8,7 +8,6 @@ let currentYear = date.getFullYear();
 //set all values to normal when loading
 let inputs = [...document.querySelectorAll('.styled-dropdown')];
 for (let i in inputs) {
-    console.log(inputs[i].value)
     inputs[i].value = '';
     
 }
@@ -20,7 +19,6 @@ document.getElementById('submit-message').textContent = 'Make sure all boxes are
 function submit() {
     //check that all variables have something assigned else return an error message
     for (let i in inputs) {
-        console.log(inputs[i].value)
         if (inputs[i].value === '') {
             //change submit message
             document.getElementById('submit-message').textContent = "One of the boxes isn't filled!";
@@ -95,7 +93,6 @@ function deleteGame() {
         basicStats();
     } else {
         games.length = games.length - 1;
-        console.log(games)
         localStorage.setItem('games', JSON.stringify(games)); //save all variables into database
         lastGame();
         basicStats();
@@ -144,7 +141,6 @@ function basicStats() {
             numFemale++;
         }
 
-        console.log(games[i].type === 'Practice')
         //find stats for this year
         let gameDate = new Date(games[i].date);
         if (gameDate.getFullYear() === currentYear) {
@@ -156,7 +152,6 @@ function basicStats() {
             } 
             if (practiceComps.includes(games[i].comp) || games[i].type === 'Practice') {
                 yearPractice++;
-                console.log(yearPractice)
             }
             if ("Male" === games[i].gender) {
                 yearNumMale++;
@@ -419,6 +414,8 @@ function callGame() {
         }
         if(games[i].ground === groundStat) {
             groundBoolean = true;
+        } else {
+            groundBoolean = false;
         }
         if ((groundBoolean || !groundCheck.checked) && (yearBoolean || !yearCheck.checked) && (divisionBoolean || !divisionCheck.checked) && (ageBoolean || !ageCheck.checked) && (compBoolean || !compCheck.checked) && (genderBoolean || !genderCheck.checked)) {
             statNum++;
@@ -492,6 +489,8 @@ function compare() {
         }
         if(games[i].ground === groundStat) {
             groundBoolean = true;
+        } else {
+            groundBoolean = false;
         }
         if ((groundBoolean || !groundCheck.checked) && (yearBoolean || !yearCheck.checked) && (divisionBoolean || !divisionCheck.checked) && (ageBoolean || !ageCheck.checked) && (compBoolean || !compCheck.checked) && (genderBoolean || !genderCheck.checked)) {
             statNum++;
@@ -561,6 +560,8 @@ function compare() {
         }
         if(games[i].ground === groundStat) {
             groundBoolean = true;
+        } else {
+            groundBoolean = false;
         }
         if ((groundBoolean || !groundCheck.checked) && (yearBoolean || !yearCheck.checked) && (divisionBoolean || !divisionCheck.checked) && (ageBoolean || !ageCheck.checked) && (compBoolean || !compCheck.checked) && (genderBoolean || !genderCheck.checked)) {
             statNum++;
@@ -647,6 +648,8 @@ function graph() {
             }
             if(games[i].ground === groundStat) {
                 groundBoolean = true;
+            } else {
+                groundBoolean = false;
             }
             if ((groundBoolean || !groundCheck.checked) && (yearBoolean) && (divisionBoolean || !divisionCheck.checked) && (ageBoolean || !ageCheck.checked) && (compBoolean || !compCheck.checked) && (genderBoolean || !genderCheck.checked)) {
                 statNum++;
@@ -703,8 +706,8 @@ function uploadStats() {
           const parsedData = JSON.parse(reader.result);
           if (Array.isArray(parsedData)) {
             games = parsedData;
-            console.log('Games array updated:', games);
             lastGame();
+            localStorage.setItem('games', JSON.stringify(games)); //save all variables into database
           } else {
             console.error('JSON file does not contain an array');
           }
