@@ -137,7 +137,7 @@ function basicStats() {
         }
         if ("Male" === games[i].gender) {
             numMale++;
-        } else {
+        } else if ("Female" === games[i].gender) {
             numFemale++;
         }
 
@@ -155,8 +155,8 @@ function basicStats() {
             }
             if ("Male" === games[i].gender) {
                 yearNumMale++;
-            } else {
-                yearNumFemale++;
+            } else if ("Female" === games[i].gender) {
+                numFemale++;
             }
         }
     }   
@@ -271,7 +271,7 @@ function mostTeam(year) {
                 let gender = (games[i].gender);
                 if (gender === 'Male') {
                     gender = 'Mens';
-                } else {
+                } else if (gender = 'Female') {
                     gender = 'Womens';
                 }
                 let homeClub = (games[i].home);
